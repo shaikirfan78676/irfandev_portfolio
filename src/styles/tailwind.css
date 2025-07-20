@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Core System Colors */
+    --color-background: #020617; /* slate-950 */
+    --color-foreground: #f8fafc; /* slate-50 */
+    --color-border: #334155; /* slate-600 */
+    --color-input: #1e293b; /* slate-800 */
+    --color-ring: #06b6d4; /* cyan-500 */
+    
+    /* Card & Surface Colors */
+    --color-card: #1e293b; /* slate-800 */
+    --color-card-foreground: #f8fafc; /* slate-50 */
+    --color-popover: #0f172a; /* slate-900 */
+    --color-popover-foreground: #f8fafc; /* slate-50 */
+    --color-muted: #334155; /* slate-600 */
+    --color-muted-foreground: #94a3b8; /* slate-400 */
+    
+    /* Brand Colors */
+    --color-primary: #0f172a; /* slate-900 */
+    --color-primary-foreground: #f8fafc; /* slate-50 */
+    --color-secondary: #1e293b; /* slate-800 */
+    --color-secondary-foreground: #f8fafc; /* slate-50 */
+    
+    /* Semantic Colors */
+    --color-destructive: #ef4444; /* red-500 */
+    --color-destructive-foreground: #ffffff; /* white */
+    --color-accent: #06b6d4; /* cyan-500 */
+    --color-accent-foreground: #ffffff; /* white */
+    --color-success: #10b981; /* emerald-500 */
+    --color-success-foreground: #ffffff; /* white */
+    --color-warning: #f59e0b; /* amber-500 */
+    --color-warning-foreground: #ffffff; /* white */
+    --color-error: #ef4444; /* red-500 */
+    --color-error-foreground: #ffffff; /* white */
+    
+    /* Custom Brand Colors */
+    --color-surface: #334155; /* slate-600 */
+    --color-text-primary: #f8fafc; /* slate-50 */
+    --color-text-secondary: #94a3b8; /* slate-400 */
+    --color-electric-blue: #00d4ff; /* custom */
+    --color-deep-dark: #0f1419; /* custom */
+  }
+
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+  }
+  
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  .text-gradient {
+    @apply bg-gradient-to-r from-accent to-electric-blue bg-clip-text text-transparent;
+  }
+.card-hover  {
+    @apply transition-all duration-300 ease-out hover:shadow-lg;
+  }
+.glow-effect  {
+    @apply shadow-lg;
+  }
+  
+  .neural-connection {
+    stroke-dasharray: 5, 5;
+    animation: neural-pulse 2s ease-in-out infinite;
+  }
+  
+  @keyframes neural-pulse {
+    0%, 100% { stroke-dashoffset: 0; opacity: 0.3; }
+    50% { stroke-dashoffset: 10; opacity: 1; }
+  }
+  
+  .code-rain {
+    animation: code-fall 10s linear infinite;
+  }
+  
+  @keyframes code-fall {
+    0% { transform: translateY(-100vh); opacity: 0; }
+    10% { opacity: 0.1; }
+    90% { opacity: 0.1; }
+    100% { transform: translateY(100vh); opacity: 0; }
+  }
+  
+  .holographic-card {
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(15, 23, 42, 0.8) 100%);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+  
+  .holographic-card:hover {
+    transform: rotateY(15deg) translateZ(20px);
+    box-shadow: 0 20px 40px rgba(6, 182, 212, 0.3);
+  }
+}
+
+@layer utilities {
+  .text-electric-blue {
+    color: var(--color-electric-blue);
+  }
+  
+  .bg-deep-dark {
+    background-color: var(--color-deep-dark);
+  }
+  
+  .border-electric-blue {
+    border-color: var(--color-electric-blue);
+  }
+  
+  .shadow-electric-blue {
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.6);
+  }
+}
